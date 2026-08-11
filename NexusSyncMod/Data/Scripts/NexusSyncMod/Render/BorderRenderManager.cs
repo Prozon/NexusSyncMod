@@ -5,6 +5,7 @@ using Sandbox.ModAPI;
 using System.Collections.Generic;
 using VRage.ModAPI;
 using VRageMath;
+using System.ComponentModel;
 
 namespace NexusSyncMod.Render
 {
@@ -162,6 +163,9 @@ namespace NexusSyncMod.Render
         {
             [ProtoMember(1)]
             public SectorData[] Sectors { get; set; }
+
+            [ProtoMember(2), DefaultValue((double)10000)] 
+            public double RayCastDistance { get; set; } = 10000;
 
             public ClientSectorMessage() { }
 

@@ -9,7 +9,7 @@ using VRageMath;
 
 namespace NexusSyncMod.Players
 {
-    internal class PlayersHud
+    internal class PlayerStatusHud
     {
         private const string ScreenName = "MyGuiScreenPlayers";
         public const ushort SeamlessClientNetId = 2936;

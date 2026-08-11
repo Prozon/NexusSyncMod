@@ -50,7 +50,7 @@ namespace NexusSyncMod.Data.Scripts.NexusSyncMod.Antenna
         private void _antenna_AppendingCustomInfo(IMyTerminalBlock arg1, StringBuilder arg2)
         {
             //TryShow("Setting Custom Info");
-            //arg2.Clear(); // Clear existing info
+           
             //TryShow("Setting Custom Info");
             if (_antenna == null)
             {
@@ -58,12 +58,11 @@ namespace NexusSyncMod.Data.Scripts.NexusSyncMod.Antenna
                 return;
             }
             // Append custom info to the antenna's info
+            arg2.Clear(); // Clear existing info
             arg2.AppendLine("NexusMod Antenna Control");
             arg2.AppendLine($"Antenna Name: {_antenna.CustomName}");
             arg2.AppendLine($"Subtype: {_antenna.BlockDefinition.SubtypeName}");
             arg2.AppendLine($"Controlled by NexusMod");
-
-            _antenna.SetDetailedInfoDirty();
         }
 
         public override void Close()
@@ -93,10 +92,19 @@ namespace NexusSyncMod.Data.Scripts.NexusSyncMod.Antenna
                 
         }
 
-        public override void UpdateAfterSimulation()
+        public override void UpdateBeforeSimulation10()
         {
+           
             _antenna.RefreshCustomInfo();
+            base.UpdateBeforeSimulation10();
         }
+
+        public override void UpdateAfterSimulation10()
+        {
+            
+            base.UpdateAfterSimulation10();
+        }
+
 
 
 

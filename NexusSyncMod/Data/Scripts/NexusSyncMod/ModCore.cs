@@ -1,5 +1,4 @@
 ﻿using Draygo.API;
-using NexusSyncMod.Data.Scripts.NexusSyncMod.Players;
 using NexusSyncMod.Gates;
 using NexusSyncMod.Players;
 using NexusSyncMod.Render;
@@ -18,7 +17,6 @@ namespace NexusSyncMod
         private RespawnScreen respawnScreen = new RespawnScreen();
         private BorderRenderManager renderer = new BorderRenderManager();
         private GateVisuals gateVisuals = new GateVisuals();
-        private PlayersHud playersList = new PlayersHud();
         private PlayerStatusHud playerStatusHud = new PlayerStatusHud();
         private HudAPIv2 hudApi;
 
@@ -33,7 +31,6 @@ namespace NexusSyncMod
             respawnScreen.UnloadData();
             renderer.Unload();
             gateVisuals.UnloadData();
-            playersList.Unload();
             playerStatusHud.Unload();
         }
 
@@ -48,7 +45,6 @@ namespace NexusSyncMod
             respawnScreen.Init();
             renderer.InitNetwork();
             gateVisuals.Init();
-            playersList.Init();
             playerStatusHud.Init();
         }
 
@@ -66,7 +62,6 @@ namespace NexusSyncMod
         public void OnHudReady()
         {
             renderer.OnHudReady();
-            playersList.InitHud();
             playerStatusHud.InitHud();
         }
 
